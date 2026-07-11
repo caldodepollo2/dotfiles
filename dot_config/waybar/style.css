@@ -1,0 +1,168 @@
+/* Opciones globales */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    transition: all 0.25s cubic-bezier(0.25, 0, 0.2, 1);
+}
+
+/* Waybar */
+window#waybar {
+    background: rgba(5, 10, 18, 0.85);
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(90deg, 
+        rgba(0, 191, 255, 0.8),
+        rgba(77, 166, 255, 0.6),
+        rgba(102, 204, 255, 0.4)
+    ) 1;
+    border-radius: 0 0 12px 12px;
+    color: #cfefff;
+    padding: 4px 8px;
+    margin: 0;
+    box-shadow: 0 -4px 12px rgba(0, 10, 25, 0.5);
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 6px 12px;
+    margin: 2px 3px;
+    border-radius: 8px;
+    font-weight: bold;
+    background: rgba(10, 20, 40, 0.6);
+    color: #66ccff;
+    border: 1px solid rgba(0, 150, 255, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 80, 160, 0.7);
+    color: #ffffff;
+    border-color: rgba(0, 200, 255, 0.6);
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, #003366, #004488);
+    color: #00bfff;
+    border-color: #00cfff;
+    box-shadow: 
+        0 0 8px rgba(0, 191, 255, 0.5),
+        inset 0 0 12px rgba(0, 207, 255, 0.3);
+    text-shadow: 0 0 6px #00bfff;
+}
+
+/* Clock */
+#clock {
+    font-size: 15px;
+    font-weight: bold;
+    color: #66caff;
+    padding: 6px 16px;
+    text-shadow: 0 0 6px #00bfff;
+    background: rgba(20, 40, 70, 0.25);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 150, 255, 0.3);
+    animation: pulse 3s infinite alternate;
+}
+#clock:hover {
+    background: rgba(31, 111, 235, 0.25);
+    color: #ffffff;
+    border-color: rgba(0, 207, 255, 0.5);
+    box-shadow:
+        0 0 8px rgba(0, 191, 255, 0.3),
+        inset 0 0 15px rgba(0, 207, 255, 0.1);
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 4px #00bfff; }
+    100% { text-shadow: 0 0 12px #00cfff, 0 0 20px #00e6ff; }
+}
+
+/* Módulos del sistema */
+#backlight,
+#wireplumber,
+#network,
+#bluetooth,
+#battery,
+#tray {
+    font-size: 14px;
+    margin: 0 5px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: rgba(10, 30, 60, 0.3);
+    color: #cfefff;
+    font-weight: 500;
+    border: 1px solid rgba(0, 150, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+#backlight:hover,
+#wireplumber:hover,
+#network:hover,
+#battery:hover,
+#bluetooth:hover {
+    background: rgba(31, 111, 235, 0.25);
+    color: #ffffff;
+    border-color: rgba(0, 207, 255, 0.5);
+    box-shadow: 
+        0 0 8px rgba(0, 191, 255, 0.3),
+        inset 0 0 15px rgba(0, 207, 255, 0.1);
+}
+
+/* Estados específicos */
+#wireplumber.muted {
+    color: #ff4d4d;
+}
+
+#network.disconnected {
+    color: #ff4d4d;
+    animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Estados batería */
+#battery.warning {
+    color: #fff04d;
+    text-shadow: 0 0 8px #ffd966;
+    animation: pulse-warning 2s infinite;
+}
+
+#battery.critical {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px #ff3333;
+    animation: pulse-critical 1s infinite;
+    background: rgba(255, 50, 50, 0.15);
+}
+
+@keyframes pulse-warning {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-critical {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Tray */
+#tray {
+    background: rgba(5, 15, 30, 0.4);
+    border-radius: 10px;
+    padding: 0 8px;
+    margin-right: 6px;
+    border: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+#tray > .item {
+    padding: 0 8px;
+}
+
+#tray > .item:hover {
+    background: rgba(31, 111, 235, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 0 6px #4da6ff;
+}

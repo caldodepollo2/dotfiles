@@ -1,0 +1,71 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 42,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["backlight", "wireplumber", "network", "bluetooth", "battery", "tray"],
+  
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+        "*": 5
+    }
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "backlight": {
+    "format": "󰃠 {percent}%",
+    "tooltip": false
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": ["", "", ""],
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol", 
+    "node-type": "Audio/Sink"
+  },
+
+  "network": {
+    "format-wifi": "  {essid} {bandwidthDownBits:2}",
+    "format-ethernet": "  {ifname}: {bandwidthDownBits:2}",
+    "format-disconnected": " Disconnected",
+    "on-click": "kitty -e nmtui",
+    "signal-strength-steps": 4
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "format": "{capacity}% {icon}",
+    "format-charging": " {capacity}% {icon}", 
+    "format-plugged": " {capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "warning": 20,
+      "critical": 5
+    }
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias} ({device_battery:2}%)",
+    "format-connected-battery": " {device_alias} 󰁹{device_battery:2}%",
+    "on-click": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; fi'",
+    "on-click-right": "kitty -e bluetui"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 6
+  }
+}

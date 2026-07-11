@@ -1,0 +1,71 @@
+/* ===== L Y O K O   O V E R R I D E S ===== */
+window {
+    background-color: #0a1428;  /* lyoko-bg-alt */
+    color: #cfefff;             /* lyoko-fg */
+}
+
+/* Botones */
+button {
+    background-color: #0d1a33;
+    color: #cfefff;
+    border: 1px solid #00bfff;  /* lyoko-accent */
+    border-radius: 6px;
+}
+button:hover {
+    background-color: #1a2a4a;
+}
+button:active, button:checked, button.toggle:checked {
+    background-color: #00bfff;
+    color: #0a1428;
+}
+
+/* Campos de entrada */
+entry {
+    background-color: #0d1a33;
+    color: #cfefff;
+    border: 1px solid #4da6ff;  /* lyoko-accent2 */
+}
+entry:focus {
+    border-color: #00bfff;
+}
+
+/* Barras de título (headerbars) */
+headerbar {
+    background-color: #050a12;  /* lyoko-bg */
+    color: #cfefff;
+}
+headerbar button {
+    background-color: transparent;
+    border: none;
+}
+headerbar button:hover {
+    background-color: #0a1428;
+}
+
+/* Selección de texto y elementos */
+*:selected, selection, .view:selected, .textview:selected {
+    background-color: #00bfff;
+    color: #0a1428;
+}
+
+/* Deslizadores (scrollbars, sliders) */
+scrollbar slider, slider {
+    background-color: #00bfff;
+    border-radius: 10px;
+}
+scrollbar trough {
+    background-color: #0a1428;
+}
+
+/* Menús y popovers */
+popover, menu {
+    background-color: #0a1428;
+    color: #cfefff;
+}
+popover button, menu menuitem {
+    background-color: transparent;
+}
+popover button:hover, menu menuitem:hover {
+    background-color: #00bfff;
+    color: #0a1428;
+}

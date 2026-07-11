@@ -1,0 +1,11 @@
+# ~/.bashrc
+
+# Salir si no es interactivo
+[[ $- != *i* ]] && return
+
+# Colores básicos
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Prompt simple y legible
+PS1='\[\e[38;2;102;204;255m\]\w\[\e[0m\]\n\[\e[38;2;0;207;255m\]>\[\e[0m\] '
