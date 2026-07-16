@@ -20,8 +20,6 @@ alias calendar='cal -y --monday'
 
 alias update='sudo pacman -Syu && yay -Syu && yay -Yc && sudo bootctl update'
 
-alias jflap='java -jar ~/Informatica/3/TALF/JFLAP.jar &'
-alias pilar='java -jar Informatica/3/SegInf/practica2/pilar_rm_2025.1/pilar_rm.jar &'
 alias spotifycrack='bash <(curl -sSL https://spotx-official.github.io/run.sh)'
 
 # --- History ---
