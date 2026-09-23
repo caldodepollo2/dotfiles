@@ -32,13 +32,13 @@
     "format-muted": "",
     "format-icons": ["", "", ""],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol", 
+    "on-click-right": "kitty -e wiremix", 
     "node-type": "Audio/Sink"
   },
 
   "network": {
     "format-wifi": "  {essid} {bandwidthDownBits:2}",
-    "format-ethernet": "  {ifname}: {bandwidthDownBits:2}",
+    "format-linked": "  {ifname}: {bandwidthDownBits:2}",
     "format-disconnected": " Disconnected",
     "on-click": "kitty -e nmtui",
     "signal-strength-steps": 4

@@ -4,7 +4,7 @@ setopt pipefail
 
 actions=(
   " Power off"
-  " Restart"
+  " Reboot"
   " Suspend"
 )
 
@@ -21,6 +21,6 @@ print -rl -- ${(qq)option}
 
 case $option in
   " Power off") systemctl poweroff ;;
-  " Restart") systemctl reboot ;;
+  " Reboot") systemctl reboot ;;
   " Suspend") systemctl suspend ;;
 esac

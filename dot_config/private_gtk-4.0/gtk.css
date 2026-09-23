@@ -1,71 +1,124 @@
-/* ===== L Y O K O   O V E R R I D E S ===== */
+/* Colors */
+@define-color bg       #050a12;
+@define-color bg-alt   #0a1428;
+@define-color surface  #0d1a33;
+@define-color hover    #1a2a4a;
+@define-color fg       #cfefff;
+@define-color accent   #00bfff;
+@define-color accent2  #4da6ff;
+@define-color link     #00e6ff;
+@define-color disabled alpha(#cfefff, 0.45);
+
+/* Windows */
 window {
-    background-color: #0a1428;  /* lyoko-bg-alt */
-    color: #cfefff;             /* lyoko-fg */
+    background-color: @bg-alt;
+    color: @fg;
 }
 
-/* Botones */
+/* Buttons */
 button {
-    background-color: #0d1a33;
-    color: #cfefff;
-    border: 1px solid #00bfff;  /* lyoko-accent */
+    background-color: @surface;
+    color: @fg;
+    border: 1px solid @accent;
     border-radius: 6px;
 }
+
 button:hover {
-    background-color: #1a2a4a;
-}
-button:active, button:checked, button.toggle:checked {
-    background-color: #00bfff;
-    color: #0a1428;
+    background-color: @hover;
 }
 
-/* Campos de entrada */
+button:active,
+button:checked,
+button.toggle:checked {
+    background-color: @accent;
+    color: @bg;
+}
+
+button:disabled {
+    color: @disabled;
+}
+
+/* Entry field */
 entry {
-    background-color: #0d1a33;
-    color: #cfefff;
-    border: 1px solid #4da6ff;  /* lyoko-accent2 */
-}
-entry:focus {
-    border-color: #00bfff;
+    background-color: @surface;
+    color: @fg;
+    border: 1px solid @accent2;
+    border-radius: 4px;
 }
 
-/* Barras de título (headerbars) */
-headerbar {
-    background-color: #050a12;  /* lyoko-bg */
-    color: #cfefff;
+entry:focus {
+    border-color: @accent;
 }
+
+/* Headerbar */
+headerbar {
+    background-color: @bg;
+    color: @fg;
+}
+
 headerbar button {
     background-color: transparent;
     border: none;
 }
+
 headerbar button:hover {
-    background-color: #0a1428;
+    background-color: @bg-alt;
 }
 
-/* Selección de texto y elementos */
-*:selected, selection, .view:selected, .textview:selected {
-    background-color: #00bfff;
-    color: #0a1428;
+/* Selection */
+*:selected,
+selection,
+.view:selected,
+.textview:selected {
+    background-color: @accent;
+    color: @bg;
 }
 
-/* Deslizadores (scrollbars, sliders) */
-scrollbar slider, slider {
-    background-color: #00bfff;
+/* Scrollbars / sliders */
+scrollbar slider,
+slider {
+    background-color: @accent;
     border-radius: 10px;
 }
+
 scrollbar trough {
-    background-color: #0a1428;
+    background-color: @bg-alt;
 }
 
-/* Menús y popovers */
-popover, menu {
-    background-color: #0a1428;
-    color: #cfefff;
+/* Menus / popovers */
+popover,
+menu {
+    background-color: @bg-alt;
+    color: @fg;
 }
-popover button, menu menuitem {
+
+popover button,
+menu menuitem {
     background-color: transparent;
+    color: @fg;
 }
-popover button:hover, menu menuitem:hover {
-    background-color: #00bfff;
-    color: #0a1428;
+
+popover button:hover,
+menu menuitem:hover {
+    background-color: @accent;
+    color: @bg;
+}
+
+/* Links */
+link,
+*:link {
+    color: @link;
+}
+
+/* Tooltips */
+tooltip {
+    background-color: @bg-alt;
+    color: @fg;
+    border: 1px solid @accent;
+    border-radius: 6px;
+}
+
+/* Spinners */
+spinner {
+    color: @accent;
 }

@@ -1,9 +1,9 @@
-/* Opciones globales */
+/* Global options */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 13px;
     border: none;
-    transition: all 0.25s cubic-bezier(0.25, 0, 0.2, 1);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Waybar */
@@ -76,7 +76,7 @@ window#waybar {
     100% { text-shadow: 0 0 12px #00cfff, 0 0 20px #00e6ff; }
 }
 
-/* Módulos del sistema */
+/* System modules */
 #backlight,
 #wireplumber,
 #network,
@@ -107,7 +107,7 @@ window#waybar {
         inset 0 0 15px rgba(0, 207, 255, 0.1);
 }
 
-/* Estados específicos */
+/* Specific states */
 #wireplumber.muted {
     color: #ff4d4d;
 }
@@ -122,7 +122,7 @@ window#waybar {
     100% { opacity: 1; }
 }
 
-/* Estados batería */
+/* Battery states */
 #battery.warning {
     color: #fff04d;
     text-shadow: 0 0 8px #ffd966;

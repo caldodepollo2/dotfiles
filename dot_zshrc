@@ -1,59 +1,75 @@
-# --- PATH básico ---
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+# Path
 typeset -U PATH
+export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 
-# --- Prompt minimalista ---
-# Prompt minimalista azul neón
+# Shell option
 setopt prompt_subst
+setopt no_beep
+setopt autocd
+setopt interactive_comments
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_verify
+setopt append_history
+setopt share_history
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Prompt
 autoload -U colors && colors
 PROMPT='%F{#66ccff}%~%f
 %F{#00cfff}>%f '
 
-# --- Aliases ---
+# Completion
+autoload -Uz compinit
+compinit -C
+
+# Aliases
 alias l='eza --icons --group-directories-first'
 alias ls='eza -a --icons --group-directories-first'
 alias ll='eza -lh --icons --group-directories-first'
 alias la='eza -lah --icons --group-directories-first'
 alias tree='eza --tree --icons'
+
 alias cat='bat --paging=never'
 alias calendar='cal -y --monday'
+alias grep='grep --color=auto'
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias mkdir='mkdir -pv'
+
+alias ..='cd ..'
+alias ...='cd ../..'
 
 alias update='sudo pacman -Syu && yay -Syu && yay -Yc && sudo bootctl update'
 
-alias spotifycrack='bash <(curl -sSL https://spotx-official.github.io/run.sh)'
+alias virtualbox='QT_QPA_PLATFORM=xcb QT_STYLE_OVERRIDE=kvantum exec /usr/bin/virtualbox "$@"'
 
-# --- History ---
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt append_history
-setopt share_history
-setopt hist_ignore_all_dups
-setopt hist_reduce_blanks
+# Functions
+mkcd() { mkdir -p "$1" && cd "$1"; }
 
-# --- Completion ---
-autoload -Uz compinit
-compinit
+# Keybinds
+bindkey -e
 
-# --- Code Lyoko colors ---
-export LS_COLORS="
-di=38;5;39:\
-ln=38;5;45:\
-so=38;5;207:\
-pi=38;5;81:\
-ex=38;5;46:\
-bd=38;5;81:\
-cd=38;5;81:\
-su=38;5;196:\
-sg=38;5;196:\
-tw=38;5;45:\
-ow=38;5;45"
-
-# --- Binds ---
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-bindkey "^[[1;5D" backward-word
-bindkey "^[[1;5C" forward-word
-bindkey "^[[3~" delete-char
+bindkey "\e[H"  beginning-of-line
+bindkey "\e[F"  end-of-line
+
+bindkey "^[[1;5D" backward-word   
+bindkey "^[[1;5C" forward-word    
+bindkey "^[[1;3D" backward-word   
+bindkey "^[[1;3C" forward-word    
+
+bindkey "^[[3~"   delete-char        
+bindkey "^H"      backward-kill-word 
+bindkey "^[[3;5~" kill-word          
+
+bindkey "^[[A" up-line-or-history
+bindkey "^[[B" down-line-or-history
+bindkey "^R"   history-incremental-search-backward
