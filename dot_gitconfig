@@ -1,0 +1,12 @@
+[init]
+    defaultBranch = main
+[user]
+    email = marcos.brandon@rai.usc.es
+    name = caldodepollo2
+[core]
+    editor = code --wait
+[push]
+    default = simple
+    autoSetupRemote = true
+[fetch]
+    prune = true
