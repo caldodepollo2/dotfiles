@@ -1,75 +1,12 @@
-# Path
-typeset -U PATH
-export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
+ZDOTDIR="${ZDOTDIR:-$HOME/.config/zsh}"
 
-# Shell option
-setopt prompt_subst
-setopt no_beep
-setopt autocd
-setopt interactive_comments
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-setopt hist_verify
-setopt append_history
-setopt share_history
-
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Prompt
-autoload -U colors && colors
-PROMPT='%F{#66ccff}%~%f
-%F{#00cfff}>%f '
-
-# Completion
-autoload -Uz compinit
-compinit -C
-
-# Aliases
-alias l='eza --icons --group-directories-first'
-alias ls='eza -a --icons --group-directories-first'
-alias ll='eza -lh --icons --group-directories-first'
-alias la='eza -lah --icons --group-directories-first'
-alias tree='eza --tree --icons'
-
-alias cat='bat --paging=never'
-alias calendar='cal -y --monday'
-alias grep='grep --color=auto'
-alias df='df -h'
-alias du='du -h'
-alias free='free -h'
-alias mkdir='mkdir -pv'
-
-alias ..='cd ..'
-alias ...='cd ../..'
-
-alias update='sudo pacman -Syu && yay -Syu && yay -Yc && sudo bootctl update'
-
-alias virtualbox='QT_QPA_PLATFORM=xcb QT_STYLE_OVERRIDE=kvantum exec /usr/bin/virtualbox "$@"'
-
-# Functions
-mkcd() { mkdir -p "$1" && cd "$1"; }
-
-# Keybinds
-bindkey -e
-
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "\e[H"  beginning-of-line
-bindkey "\e[F"  end-of-line
-
-bindkey "^[[1;5D" backward-word   
-bindkey "^[[1;5C" forward-word    
-bindkey "^[[1;3D" backward-word   
-bindkey "^[[1;3C" forward-word    
-
-bindkey "^[[3~"   delete-char        
-bindkey "^H"      backward-kill-word 
-bindkey "^[[3;5~" kill-word          
-
-bindkey "^[[A" up-line-or-history
-bindkey "^[[B" down-line-or-history
-bindkey "^R"   history-incremental-search-backward
+source "$ZDOTDIR/path.zsh"
+source "$ZDOTDIR/options.zsh"
+source "$ZDOTDIR/history.zsh"
+source "$ZDOTDIR/prompt.zsh"
+source "$ZDOTDIR/completion.zsh"
+source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/plugins.zsh" 
+source "$ZDOTDIR/colors.zsh"
+source "$ZDOTDIR/keybinds.zsh"
