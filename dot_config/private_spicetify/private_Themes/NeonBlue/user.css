@@ -1,0 +1,422 @@
+/* NeonBlue */
+:root {
+    --player-bar-height: 105px;
+
+    /* NeonBlue palette */
+    --bg: #050a12;
+    --bg-alt: #0a1428;
+    --surface: #0d1a33;
+    --hover: #1a2a4a;
+
+    --fg: #cfefff;
+    --fg-bright: #ffffff;
+    --blue: #66ccff;
+    --blue2: #4da6ff;
+    --cyan: #00bfff;
+    --cyan2: #00cfff;
+    --glow: #00e6ff;
+
+    --error: #ff4d4d;
+    --warning: #fff04d;
+}
+
+/* Global */
+* {
+    scrollbar-color: var(--cyan) var(--bg-alt);
+}
+
+body {
+    background-color: var(--bg) !important;
+}
+
+/* Top bar */
+.main-topBar-background {
+    background-color: transparent !important;
+}
+
+.main-topBar-overlay {
+    background-color: var(--bg) !important;
+    box-shadow: 0 1px 0 rgba(0, 191, 255, 0.15);
+}
+
+/* Navigation buttons */
+.main-topBar-historyButtons button,
+.main-topBar-navBar button {
+    color: var(--blue) !important;
+}
+
+.main-topBar-historyButtons button:hover,
+.main-topBar-navBar button:hover {
+    color: var(--cyan) !important;
+}
+
+/* Search */
+input {
+    background-color: var(--surface) !important;
+    border: 1px solid rgba(77, 166, 255, 0.35) !important;
+    border-radius: 8px !important;
+    padding: 6px 10px 6px 48px;
+    color: var(--fg) !important;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+input:hover {
+    border-color: rgba(77, 166, 255, 0.6) !important;
+}
+
+input:focus {
+    border-color: var(--cyan) !important;
+    box-shadow:
+        0 0 0 1px rgba(0, 191, 255, 0.25),
+        0 0 12px rgba(0, 191, 255, 0.12);
+    outline: none !important;
+}
+
+.x-searchInput-searchInputSearchIcon,
+.x-searchInput-searchInputClearButton {
+    color: var(--blue) !important;
+}
+
+/* Main backgrounds */
+.main-home-homeHeader,
+.x-entityHeader-overlay,
+.x-actionBarBackground-background,
+.main-actionBarBackground-background,
+.main-entityHeader-overlay,
+.main-entityHeader-backgroundColor {
+    background-color: unset !important;
+    background-image: unset !important;
+}
+
+.main-entityHeader-shadow {
+    box-shadow: 0 4px 20px rgba(0, 26, 51, 0.45);
+}
+
+/* Sidebar */
+.main-rootlist-rootlist {
+    background-color: var(--bg-alt);
+}
+
+.main-rootlist-rootlistDivider {
+    margin-bottom: 8px;
+    border-color: rgba(0, 191, 255, 0.15) !important;
+}
+
+.main-rootlist-rootlistPlaylistsScrollNode {
+    padding: 0;
+}
+
+#spicetify-playlist-list {
+    padding-top: 8px;
+}
+
+.main-rootlist-rootlistItemLink {
+    border-radius: 6px;
+    margin: 1px 5px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.main-rootlist-rootlistItemLink:hover {
+    background: var(--hover) !important;
+    color: var(--fg-bright) !important;
+}
+
+/* Selected playlist */
+.main-rootlist-rootlistItemLink.main-rootlist-rootlistItemLinkActive {
+    background: var(--cyan) !important;
+    color: var(--bg) !important;
+    border-radius: 6px;
+    padding: 0 10px;
+    margin: 0 5px;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.18);
+}
+
+/* Sidebar collection buttons */
+.main-collectionLinkButton-collectionLinkButton .main-collectionLinkButton-icon,
+.main-collectionLinkButton-collectionLinkButton .main-collectionLinkButton-collectionLinkText {
+    opacity: 1;
+}
+
+.link-subtle {
+    color: var(--fg) !important;
+}
+
+.main-collectionLinkButton-collectionLinkButton:hover {
+    background-color: var(--hover) !important;
+}
+
+/* Navigation */
+.main-navBar-navBarLink {
+    border-radius: 6px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.main-navBar-navBarLink:hover {
+    background-color: var(--hover) !important;
+    color: var(--fg-bright) !important;
+}
+
+.main-navBar-navBarLinkActive {
+    background: var(--surface) !important;
+    color: var(--cyan) !important;
+    box-shadow: inset 2px 0 0 var(--cyan);
+}
+
+div.GlueDropTarget.personal-library > *.active {
+    background: var(--surface) !important;
+    color: var(--cyan) !important;
+}
+
+/* Text */
+.main-entityHeader-metaDataText,
+.main-duration-container {
+    color: var(--blue) !important;
+}
+
+.queue-queue-title,
+.queue-playHistory-title {
+    color: var(--fg) !important;
+}
+
+.main-trackList-rowTitle {
+    color: var(--fg) !important;
+}
+
+.main-trackList-rowSubTitle {
+    color: var(--blue) !important;
+}
+
+/* Track list */
+.main-trackList-trackListRow:hover {
+    background-color: rgba(26, 42, 74, 0.65) !important;
+}
+
+.main-trackList-trackListRow.main-trackList-active {
+    background-color: rgba(0, 191, 255, 0.08) !important;
+}
+
+.main-trackList-trackListRow.main-trackList-active:hover .main-trackList-rowMarker,
+.main-trackList-trackListRow.main-trackList-active:hover .main-trackList-rowTitle,
+.main-trackList-trackListRow.main-trackList-active:focus-within .main-trackList-rowMarker,
+.main-trackList-trackListRow.main-trackList-active:focus-within .main-trackList-rowTitle {
+    color: var(--cyan) !important;
+}
+
+.main-trackList-playingIcon {
+    filter: grayscale(1);
+}
+
+/* Buttons */
+.main-playButton-PlayButton.main-playButton-primary {
+    color: var(--fg-bright);
+}
+
+.main-playPauseButton-button {
+    background-color: var(--cyan) !important;
+    color: var(--bg) !important;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.2);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.main-playPauseButton-button:hover {
+    background-color: var(--cyan2) !important;
+    box-shadow: 0 0 18px rgba(0, 207, 255, 0.3);
+    transform: scale(1.03);
+}
+
+/* Generic Spotify buttons */
+button:not([aria-label=""]) {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Cards */
+.main-cardImage-imageWrapper {
+    background-color: transparent;
+}
+
+.main-card-card {
+    border-radius: 8px;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.main-card-card:hover {
+    background-color: var(--surface) !important;
+    box-shadow:
+        0 0 0 1px rgba(0, 191, 255, 0.18),
+        0 8px 24px rgba(0, 26, 51, 0.35);
+}
+
+/* Entity / artist headers */
+.main-entityHeader-background.main-entityHeader-gradient {
+    opacity: 0.3;
+}
+
+.main-entityHeader-container.main-entityHeader-withBackgroundImage,
+.main-entityHeader-background,
+.main-entityHeader-background.main-entityHeader-overlay:after {
+    height: 100vh;
+}
+
+.main-entityHeader-withBackgroundImage .main-entityHeader-headerText {
+    justify-content: center;
+}
+
+.main-entityHeader-container.main-entityHeader-nonWrapped.main-entityHeader-withBackgroundImage {
+    padding-left: 9%;
+}
+
+.main-entityHeader-background.main-entityHeader-overlay:after {
+    background-image:
+        linear-gradient(transparent, transparent),
+        linear-gradient(var(--bg), var(--bg));
+}
+
+.artist-artistOverview-overview
+.main-entityHeader-withBackgroundImage h1 {
+    font-size: 175px !important;
+    line-height: 175px !important;
+}
+
+/* Player bar */
+.main-nowPlayingBar-nowPlayingBar {
+    height: var(--player-bar-height);
+    background-color: var(--bg) !important;
+    border-top: 1px solid rgba(0, 191, 255, 0.18);
+    box-shadow: 0 -6px 24px rgba(0, 26, 51, 0.35);
+}
+
+.main-nowPlayingBar-nowPlayingBar
+.main-trackInfo-name {
+    color: var(--fg) !important;
+}
+
+.main-nowPlayingBar-nowPlayingBar
+.main-trackInfo-artists a {
+    color: var(--blue) !important;
+}
+
+.main-nowPlayingBar-nowPlayingBar button:hover {
+    color: var(--cyan) !important;
+}
+
+/* Progress / volume */
+.playback-bar {
+    --fg-color: var(--cyan) !important;
+}
+
+.playback-bar .progress-bar {
+    --fg-color: var(--cyan) !important;
+    --bg-color: var(--hover) !important;
+}
+
+.progress-bar__fg {
+    background-color: var(--cyan) !important;
+}
+
+.progress-bar__bg {
+    background-color: var(--hover) !important;
+}
+
+/* Context menus */
+.main-contextMenu-menu {
+    background-color: var(--surface) !important;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    border-radius: 8px;
+    box-shadow:
+        0 10px 30px rgba(0, 26, 51, 0.55),
+        0 0 0 1px rgba(0, 191, 255, 0.05);
+}
+
+.main-contextMenu-menuHeading,
+.main-contextMenu-menuItemButton,
+.main-contextMenu-menuItemButton:not(.main-contextMenu-disabled):focus,
+.main-contextMenu-menuItemButton:not(.main-contextMenu-disabled):hover {
+    color: var(--fg) !important;
+}
+
+.main-contextMenu-menuItemButton:not(.main-contextMenu-disabled):hover {
+    background-color: var(--hover) !important;
+}
+
+/* Popovers / menus */
+.main-buddyFeed-friendFeed,
+.main-trackCreditsModal-container {
+    background-color: var(--surface) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 191, 255, 0.45);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
+}
+
+/* Selection */
+::selection {
+    background: var(--cyan);
+    color: var(--bg);
+}
+
+/* Connect / device panel */
+.connect-title,
+.connect-header {
+    display: none;
+}
+
+.connect-device-list {
+    margin: 0 -5px;
+}
+
+.connect-device-list-container {
+    box-shadow: 0 4px 20px rgba(0, 26, 51, 0.35);
+}
+
+/* Notifications */
+.main-notificationBar-notification {
+    background-color: var(--surface) !important;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    color: var(--fg) !important;
+}
+
+/* Verified badge*/
+span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
+    fill: var(--cyan);
+}
+
+/* Buddy bar */
+.main-buddyFeed-activityMetadata
+.main-buddyFeed-artistAndTrackName a,
+.main-buddyFeed-activityMetadata
+.main-buddyFeed-username a,
+.main-buddyFeed-activityMetadata
+.main-buddyFeed-playbackContextLink {
+    color: var(--fg) !important;
+}
