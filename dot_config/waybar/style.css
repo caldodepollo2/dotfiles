@@ -3,14 +3,18 @@
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 13px;
     border: none;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
 }
 
 /* Waybar */
 window#waybar {
     background: rgba(5, 10, 18, 0.85);
     border-top: 2px solid transparent;
-    border-image: linear-gradient(90deg, 
+    border-image: linear-gradient(90deg,
         rgba(0, 191, 255, 0.8),
         rgba(77, 166, 255, 0.6),
         rgba(102, 204, 255, 0.4)
@@ -31,7 +35,10 @@ window#waybar {
     background: rgba(10, 20, 40, 0.6);
     color: #66ccff;
     border: 1px solid rgba(0, 150, 255, 0.3);
-    transition: all 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out,
+                color 0.2s ease-in-out,
+                border-color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -44,10 +51,19 @@ window#waybar {
     background: linear-gradient(135deg, #003366, #004488);
     color: #00bfff;
     border-color: #00cfff;
-    box-shadow: 
+    box-shadow:
         0 0 8px rgba(0, 191, 255, 0.5),
         inset 0 0 12px rgba(0, 207, 255, 0.3);
     text-shadow: 0 0 6px #00bfff;
+}
+
+window#waybar.empty #window {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 /* Clock */
@@ -60,8 +76,9 @@ window#waybar {
     background: rgba(20, 40, 70, 0.25);
     border-radius: 10px;
     border: 1px solid rgba(0, 150, 255, 0.3);
-    animation: pulse 3s infinite alternate;
+    animation: pulse 2s ease-in-out infinite alternate;
 }
+
 #clock:hover {
     background: rgba(31, 111, 235, 0.25);
     color: #ffffff;
@@ -72,11 +89,18 @@ window#waybar {
 }
 
 @keyframes pulse {
-    0% { text-shadow: 0 0 4px #00bfff; }
-    100% { text-shadow: 0 0 12px #00cfff, 0 0 20px #00e6ff; }
+    0% {
+        text-shadow: 0 0 4px #00bfff;
+        opacity: 1;
+    }
+    100% {
+        text-shadow: 0 0 12px #00cfff, 0 0 20px #00e6ff;
+        opacity: 0.9;
+    }
 }
 
 /* System modules */
+#window,
 #backlight,
 #wireplumber,
 #network,
@@ -87,13 +111,17 @@ window#waybar {
     margin: 0 5px;
     padding: 6px 12px;
     border-radius: 10px;
-    background: rgba(10, 30, 60, 0.3);
+    background: linear-gradient(to bottom, transparent 0%, transparent 2px, rgba(10, 30, 60, 0.3) 2px);
     color: #cfefff;
     font-weight: 500;
     border: 1px solid rgba(0, 150, 255, 0.2);
-    transition: all 0.2s ease;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
+#window:hover,
 #backlight:hover,
 #wireplumber:hover,
 #network:hover,
@@ -102,7 +130,7 @@ window#waybar {
     background: rgba(31, 111, 235, 0.25);
     color: #ffffff;
     border-color: rgba(0, 207, 255, 0.5);
-    box-shadow: 
+    box-shadow:
         0 0 8px rgba(0, 191, 255, 0.3),
         inset 0 0 15px rgba(0, 207, 255, 0.1);
 }
@@ -114,55 +142,32 @@ window#waybar {
 
 #network.disconnected {
     color: #ff4d4d;
-    animation: blink 1.5s infinite alternate;
-}
-
-@keyframes blink {
-    0% { opacity: 0.7; }
-    100% { opacity: 1; }
+    animation: pulse 1.5s ease-in-out infinite alternate;
 }
 
 /* Battery states */
 #battery.warning {
     color: #fff04d;
     text-shadow: 0 0 8px #ffd966;
-    animation: pulse-warning 2s infinite;
+    animation: pulse 2s ease-in-out infinite alternate;
 }
 
 #battery.critical {
     color: #ff4d4d;
     text-shadow: 0 0 10px #ff3333;
-    animation: pulse-critical 1s infinite;
+    animation: pulse 1s ease-in-out infinite alternate;
     background: rgba(255, 50, 50, 0.15);
 }
 
-@keyframes pulse-warning {
-  0% { opacity: 1; }
-  50% { opacity: 0.8; }
-  100% { opacity: 1; }
-}
-
-@keyframes pulse-critical {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
 /* Tray */
-#tray {
-    background: rgba(5, 15, 30, 0.4);
-    border-radius: 10px;
+#tray * {
     padding: 0 8px;
-    margin-right: 6px;
-    border: 1px solid rgba(0, 150, 255, 0.2);
-}
-
-#tray > .item {
-    padding: 0 8px;
-}
-
-#tray > .item:hover {
-    background: rgba(31, 111, 235, 0.2);
     border-radius: 6px;
+    transition: background 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+#tray *:hover {
+    background: rgba(31, 111, 235, 0.2);
     box-shadow: 0 0 6px #4da6ff;
 }

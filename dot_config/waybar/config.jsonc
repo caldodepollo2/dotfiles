@@ -2,19 +2,23 @@
   "layer": "top",
   "position": "bottom",
   "height": 42,
-
-  "modules-left": ["hyprland/workspaces"],
+  
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": ["backlight", "wireplumber", "network", "bluetooth", "battery", "tray"],
   
   "hyprland/workspaces": {
-    "disable-scroll": true,
     "all-outputs": true,
-    "format": "{name}",
-    "on-click": "activate",
     "persistent-workspaces": {
-        "*": 5
+        "*": [1, 2, 3, 4, 5]
     }
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "tooltip": false,
+    "icon": true,
+    "max-length": 50
   },
 
   "clock": {
@@ -31,24 +35,24 @@
     "format": "{icon} {volume}%",
     "format-muted": "",
     "format-icons": ["", "", ""],
+    "tooltip": false,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "kitty -e wiremix", 
     "node-type": "Audio/Sink"
   },
 
   "network": {
-    "format-wifi": "  {essid} {bandwidthDownBits:2}",
-    "format-linked": "  {ifname}: {bandwidthDownBits:2}",
+    "format-wifi": "  {essid} {bandwidthDownBits}",
+    "format-linked": "  {ifname}: {bandwidthDownBits}",
     "format-disconnected": " Disconnected",
-    "on-click": "kitty -e nmtui",
-    "signal-strength-steps": 4
+    "tooltip": false,
+    "on-click": "kitty -e nmtui"
   },
 
   "battery": {
     "bat": "BAT1",
     "format": "{capacity}% {icon}",
-    "format-charging": " {capacity}% {icon}", 
-    "format-plugged": " {capacity}% {icon}",
+    "format-charging": " {capacity}% {icon}",
     "format-icons": ["", "", "", "", ""],
     "states": {
       "warning": 20,
@@ -58,8 +62,9 @@
 
   "bluetooth": {
     "format": " {status}",
-    "format-connected": " {device_alias} ({device_battery:2}%)",
-    "format-connected-battery": " {device_alias} 󰁹{device_battery:2}%",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} 󰁹 {device_battery_percentage}",
+    "tooltip": false,
     "on-click": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; fi'",
     "on-click-right": "kitty -e bluetui"
   },
