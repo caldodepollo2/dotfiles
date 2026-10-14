@@ -8,12 +8,13 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("librewolf"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd([[sh -c 'grim -g "$(slurp)" ~/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png']]))
-hl.bind("SHIFT + Print ", hl.dsp.exec_cmd([[sh -c 'grim -g "$(slurp)" - | tee >(cliphist store) | wl-copy']]))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[sh -c 'grim -g "$(slurp)" - | tee >(cliphist store) | wl-copy']]))
 
 -- Utilities
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("~/.local/bin/fuzzel-power.sh"))
